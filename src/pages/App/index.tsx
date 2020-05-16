@@ -1,10 +1,10 @@
 import React from 'react';
-import './index.less';
+import style from './index.less';
 
 function App() {
   // const { a } = Utils;
   return (
-    <div className="App">
+    <div className={style.App}>
       <header className="App-header">
       </header>
     </div>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './pages/App';
 import * as serviceWorker from './serviceWorker';
 
-import './index.less';
+// import './index.less';
 
 if (process.env.NODE_ENV !== 'production') {
   require("./hot");
