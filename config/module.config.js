@@ -4,4 +4,9 @@ module.exports = {
     globalName: 'Utils',
     isDep: true,
   },
+  suyiStore: {
+    input: 'src/store/index.ts',
+    globalName: 'SuyiStore',
+    isDep: true,
+  },
 };

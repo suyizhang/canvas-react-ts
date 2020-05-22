@@ -8,15 +8,16 @@
       "esnext"
     ],
     "allowJs": true, // 允许编译javascript文件。
-    "skipLibCheck": true, // 	忽略所有的声明文件（ *.d.ts）的类型检查。
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": false, // 	将每个文件作为单独的模块（与“ts.transpileModule”类似）。
     "noEmit": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true, // 	忽略所有的声明文件（ *.d.ts）的类型检查。
+    "strict": true,
+    "experimentalDecorators": true, // 支持装饰器
+    "isolatedModules": false, // 	将每个文件作为单独的模块（与“ts.transpileModule”类似）。
     "jsx": "react"
   },
   "include": [

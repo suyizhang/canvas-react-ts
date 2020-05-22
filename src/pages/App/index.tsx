@@ -1,14 +1,22 @@
 import React from 'react';
-import style from './index.less';
+import { Provider } from "mobx-react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { hot } from "react-hot-loader/root";
+
+import Home from '../Home';
+import CanvasLayout from '../CanvasLayout';
 
 function App() {
-  // const { a } = Utils;
   return (
-    <div className={style.App}>
-      <header className="App-header">
-      </header>
-    </div>
+    <Provider {...SuyiStore}>
+      <BrowserRouter>
+      <Switch>
+        <Route path="/canvas" render={() => <CanvasLayout />} />
+        <Route path="/" render={() => <Home />} />
+      </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
-export default App;
+export default hot(App);
