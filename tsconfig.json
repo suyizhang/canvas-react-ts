@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".", // 工作根目录
     "target": "es6",
     "module": "esnext",
     "lib": [
@@ -20,6 +21,11 @@
     "isolatedModules": false, // 	将每个文件作为单独的模块（与“ts.transpileModule”类似）。
     "jsx": "react"
   },
+  // "paths": { // 指定模块的路径，和baseUrl有关联，和webpack中resolve.alias配置一样
+  //   "src": [ //指定后可以在文件之直接 import * from 'src';
+  //     "./src"
+  //   ],
+  // },
   "include": [
     "src"
   ]
