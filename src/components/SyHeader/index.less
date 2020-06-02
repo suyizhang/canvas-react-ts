@@ -1,3 +1,93 @@
 .syHeader {
-  height: 64px;
+  position: relative;
+  height: 48px;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 4px -2px 8px rgba(0,0,0,0.5);
+  animation: haderAn 2s linear infinite alternate-reverse;
+
+  @keyframes haderAn {
+    0% {
+      box-shadow: 4px -2px 8px rgba(0,0,0,0.5);
+    }
+    100% {
+      box-shadow: 4px -2px 2px rgba(0,0,0,0.5);
+    }
+  }
+
+  .headerL {
+    font-size: 24px;
+    font-family:  "Monaco, 'Source Code Pro', 'Fira Code' ";
+    animation: lAn 2s linear 1;
+
+    @keyframes lAn {
+      0% {
+        transform: translate(0, -40px);
+      }
+
+      50% {
+        transform: translate(0, 0) rotate(40deg);
+      }
+
+      75% {
+        transform: translate(0, -12px) rotate(-15deg);
+      }
+
+      100% {
+        transform: translate(0, 0) rotate(0);
+      }
+    }
+  }
+
+  .headerR {
+    .syHeaderLink {
+      font-size: 16px;
+      margin: 0 16px;
+      text-decoration: none;
+      font-style: unset;
+      color: gray;
+      transition: all 0.5s;
+      &.active {
+        color: greenyellow;
+      }
+    }
+  }
+
+  .cricle {
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: lawngreen;
+    animation: cricleAn 10s linear alternate-reverse infinite;
+
+    .triangle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(0, 50%);
+      border-width: 10px;
+      border-color: transparent;
+      border-style: solid;
+      border-right-color: white;
+      border-width: 5px 10px;
+    }
+
+  }
+
+  @keyframes cricleAn {
+    0% {
+      transform: translate(100vw);
+    }
+    100% {
+      transform: translate(0px);
+    }
+  }
+
 }

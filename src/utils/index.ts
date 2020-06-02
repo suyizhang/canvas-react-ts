@@ -1,5 +1,7 @@
+import TextDraw from './canvas/homeCancas';
+
 const utils = {
-    a: 1
+    TextDraw
 }
 
 export default utils;
