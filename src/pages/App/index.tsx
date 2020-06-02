@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Provider } from "mobx-react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import { hot } from "react-hot-loader/root";
 import routers from 'src/routers';
 import SyHeader from 'src/components/SyHeader';
@@ -11,7 +11,7 @@ import style from './index.less';
 function App() {
   return (
     <Provider {...SuyiStore}>
-      <BrowserRouter>
+      <HashRouter>
         <SyHeader />
         <div className={style.syContent}>
         <Suspense fallback={<div>loading</div>}>
@@ -24,7 +24,7 @@ function App() {
         </Suspense>
         </div>
         <SyFooter />
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   );
 }

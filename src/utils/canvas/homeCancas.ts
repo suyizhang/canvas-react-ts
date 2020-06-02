@@ -40,7 +40,7 @@ class Draw {
   public reset = () => {
     this.placement = [];
     this.context.clearRect(0, 0, this.W, this.H);
-  }
+  };
 
   public getValue = () => {
     const gridY = 4;
@@ -90,7 +90,7 @@ class Draw {
       } else {
         v.vX = v.vX > 0 ? 1 : -1;
       }
-      if( Math.abs(v.yL) / 3 > 1) {
+      if (Math.abs(v.yL) / 3 > 1) {
         v.vY = v.vY > 0 ? 10 : -10;
       } else {
         v.vY = v.vY > 0 ? 1 : -1;
