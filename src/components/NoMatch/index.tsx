@@ -8,7 +8,7 @@ function NoMatch (props: Object) {
 
   return (
     <div className={style.errorView}>
-      1231232
+      404
     </div>
   )
 }
