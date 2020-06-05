@@ -28,7 +28,7 @@ class Draw {
     this.H = y * 2;
     this.arc = 0.2 + 2.8 * Math.random();
     this.arcV = 1;
-    this.size = x / 5;
+    this.size = x / 6;
     this.text = text;
     this.placement = [];
     this.context = canvas.getContext('2d');
@@ -53,13 +53,16 @@ class Draw {
     for (let j = 0; j < this.H; j += gridY) {
       for (let i = 0; i < this.W; i += gridX) {
         if (buffer32[j * this.W + i]) {
-          const arc = Number((1.6 * Math.random()).toFixed(2)) + 0.4;
+          const arc = +(1.6 * Math.random()).toFixed(2) + 0.4;
           const arcV = 1;
           const color = colors[Math.floor(Math.random() * colors.length)];
           const vX = Math.random() > 0.5 ? 1 : -1; // x轴速度方向
           const vY = Math.random() > 0.5 ? 1 : -1; // y轴速度方向
+
           const xL = vX * 0.33 * Math.random() * Math.floor(Math.random() * 1000 + 1); // x轴移动位置
+          // const xL = vX * +Math.random().toFixed(2) * this.x * 0.5; // x轴移动位置
           const yL = vY * 0.33 * Math.random() * Math.floor(Math.random() * 1000 + 1); // y轴移动位置
+          // const yL = vY * +Math.random().toFixed(2) * this.y; // y轴移动位置
           this.placement.push({ x: i, y: j, xL, yL, vX, vY, arc, arcV, color });
         }
       }
@@ -71,9 +74,9 @@ class Draw {
     this.context.save();
     this.placement.forEach((v: VDraw) => {
       v.arc += 0.03 * v.arcV;
-      v.xL += 0.33 * Math.random() * v.vX;
+      v.xL += +Math.random().toFixed(2) * 0.3 * v.vX;
       // v.xL += 0.33 * v.vX;
-      v.yL += 0.33 * Math.random() * v.vY;
+      v.yL += +Math.random().toFixed(2) * 0.3 * v.vY;
       // v.yL += 0.33 * v.vY;
       if (v.arc > 3 || v.arc < 2) {
         v.arcV *= -1;
@@ -85,12 +88,12 @@ class Draw {
         v.vY *= -1;
       }
       // 距离过远 调整速度
-      if (Math.abs(v.xL) / 3 > 1) {
+      if (Math.abs(v.xL) / 3 > 2) {
         v.vX = v.vX > 0 ? 10 : -10;
       } else {
         v.vX = v.vX > 0 ? 1 : -1;
       }
-      if (Math.abs(v.yL) / 3 > 1) {
+      if (Math.abs(v.yL) / 3 > 2) {
         v.vY = v.vY > 0 ? 10 : -10;
       } else {
         v.vY = v.vY > 0 ? 1 : -1;

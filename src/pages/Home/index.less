@@ -1,6 +1,73 @@
 .syHome {
   height: 100%;
   width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
   // background-image: url('./4a5e48e736d12f2ef27d70b84fc2d56284356824.jpg');
   // background-size: 100% auto;
+  &::-webkit-scrollbar {
+    // width: 4px;
+  }
+  .syBanner {
+    position: relative;
+    height: 450px;
+    color: #fff;
+    background-clip: text;
+    font-size: 14em;
+    font-weight: bold;
+    line-height: 450px;
+    text-align: center;
+    background-color: transparent;
+    -webkit-text-fill-color: transparent;
+    // background-image: url(https://picsum.photos/480/200?random);
+    background-image: url('./4a5e48e736d12f2ef27d70b84fc2d56284356824.jpg');
+    // &:before,
+    // &:after {
+    //   position: absolute;
+    //   content: '';
+    // }
+    // &:before {
+    //   z-index: -2;
+    //   top: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   background-image: inherit;
+    // }
+
+    // &:after {
+    //   position: absolute;
+    //   z-index: -1;
+    //   top: 0.125em;
+    //   right: 0.125em;
+    //   bottom: 0.125em;
+    //   left: 0.125em;
+    //   background-color: #fff;
+    // }
+  }
+
+  // .syBanner {
+  //   width: 400px;
+  //   height: 400px;
+  //   // clip-path: polygon(0% 0%, 0% 100%, 10% 100%, 10% 10%, 90% 10%, 90% 90%, 10% 90%, 10% 100%, 100% 100%, 100% 0%);
+  //   background-image: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+  //   &:hover {
+  //     animation: Sidebar_rainbowBorder-dkMw3 .5s linear infinite;
+  //   }
+  //   @keyframes Sidebar_rainbowBorder-dkMw3 {
+  //     0%, 100% {
+  //       background-image: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe);
+  //   }
+  //   25% {
+  //       background-image: linear-gradient(115deg,#fad648,#a767e5,#12bcfe,#4fcf70);
+  //   }
+  //   50% {
+  //       background-image: linear-gradient(115deg,#a767e5,#12bcfe,#4fcf70,#fad648);
+  //   }
+  //   75% {
+  //       background-image: linear-gradient(115deg,#12bcfe,#4fcf70,#fad648,#a767e5);
+  //   }
+  //   }
+  // }
+
 }

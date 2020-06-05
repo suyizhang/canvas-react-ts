@@ -24,7 +24,7 @@ function HomeCanvas(props: Props) {
   const init = useCallback(() => {
     const { screenWidth, screenHeight } = bodySize;
     const canvas = canvasRef.current;
-    currentRef.current = new Utils.TextDraw(canvas, screenWidth / 2, screenHeight / 2, text);
+    currentRef.current = new Utils.canvas.floatWord(canvas, screenWidth / 2, screenHeight / 2, text);
     currentRef.current.reset();
     currentRef.current.getValue();
     draw();

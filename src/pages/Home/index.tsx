@@ -20,6 +20,8 @@ function Home() {
 
 	return (
 		<div className={style.syHome}>
+				<div className={style.syBanner}>
+				</div>
 			<HomeCanvas text={text} />
 			{/* <input type="text" value={text} onChange={changeText} /> */}
 		</div>

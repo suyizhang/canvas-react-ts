@@ -1,7 +1,7 @@
-import TextDraw from './canvas/homeCancas';
+import canvas from './canvas';
 
 const utils = {
-    TextDraw
+    canvas
 }
 
 export default utils;
