@@ -1,8 +1,9 @@
 import { lazy } from 'react';
 
 const Home = lazy(() => import(/*webpackChunkName: "Home"*/ 'src/pages/Home'));
-const CanvasLayout = lazy(() => import(/*webpackChunkName: "CanvasLayout"*/ 'src/pages/CanvasLayout'));
+const CanvasView = lazy(() => import(/*webpackChunkName: "CanvasLayout"*/ 'src/pages/Canvas'));
 const NoMatch = lazy(() => import(/*webpackChunkName: "NoMatch"*/ 'src/components/NoMatch'));
+const CanvasDetail = lazy(() => import(/* webpackChunkName: "CanvasDetail" */ 'src/pages/CanvasDeatail'));
 
 const routers = [
   {
@@ -13,8 +14,14 @@ const routers = [
   },
   {
     path: '/canvas',
-    exact: false,
-    component: CanvasLayout,
+    exact: true,
+    component: CanvasView,
+    lazy: true,
+  },
+  {
+    path: '/canvas/:id',
+    exact: true,
+    component: CanvasDetail,
     lazy: true,
   },
   // {
