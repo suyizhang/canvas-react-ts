@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CanvasList = () => {
+const CanvasView = () => {
 	return (
 		<div>
 			CanvasList
@@ -8,4 +8,4 @@ const CanvasList = () => {
 	)
 }
 
-export default CanvasList;
+export default CanvasView;
