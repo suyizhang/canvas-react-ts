@@ -1,7 +1,6 @@
 module.exports = [
   // 'db',
   'utils',
-  'suyiStore',
   // 'dict',
   // 'service',
   // 'loader',

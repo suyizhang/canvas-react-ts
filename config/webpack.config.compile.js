@@ -17,15 +17,14 @@ const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
 
-const useTypeScript = fs.existsSync(paths.appTsConfig);
-
-
 if (env.stringified['process.env'].NODE_ENV !== '"production"') {
   throw new Error('Production builds must have NODE_ENV=production.');
 }
 const cssRegex = /\.css$/;
-// const sassRegex = /\.(scss|sass)$/;
 const lessRegex = /\.less$/;
+
+// Check if TypeScript is setup
+const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 const getStyleLoaders = (cssOptions, preProcessor, otherOptions) => {
   const loaders = [
@@ -82,8 +81,8 @@ module.exports = function (config) {
       path: config.path,
       filename: config.output,
       library,
-      publicPath: '',
-      // publicPath: publicPath,
+      // publicPath: '',
+      publicPath: publicPath,
       libraryExport: 'default',
       libraryTarget: libraryTarget, // 通用模块定义
       umdNamedDefine: true,
@@ -119,9 +118,9 @@ module.exports = function (config) {
             parser: safePostCssParser,
             map: shouldUseSourceMap
               ? {
-                  inline: false,
-                  annotation: true,
-                }
+                inline: false,
+                annotation: true,
+              }
               : false,
           },
         }),
@@ -133,7 +132,7 @@ module.exports = function (config) {
       runtimeChunk: false,
     },
     resolve: {
-      extensions: paths.moduleFileExtensions.map((ext) => `.${ext}`).filter((ext) => useTypeScript || !ext.includes('ts')),
+      extensions: paths.moduleFileExtensions.map(ext => `.${ext}`).filter(ext => useTypeScript || !ext.includes('ts')),
       alias: require('./alias'),
       plugins: [PnpWebpackPlugin],
     },
@@ -142,7 +141,7 @@ module.exports = function (config) {
       rules: [
         { parser: { requireEnsure: true } },
         {
-          test: /\.(js|mjs|jsx|ts)$/,
+          test: /\.(js|mjs|jsx)$/,
           enforce: 'pre',
           use: [
             {
@@ -197,15 +196,15 @@ module.exports = function (config) {
               sideEffects: true,
             },
             // {
-            //   test: sassRegex,
-            //   use: getStyleLoaders(
-            //     {
-            //       importLoaders: 2,
-            //       sourceMap: shouldUseSourceMap,
-            //     },
-            //     'sass-loader',
-            //   ),
-            //   sideEffects: true,
+            //     test: sassRegex,
+            //     use: getStyleLoaders(
+            //         {
+            //             importLoaders: 2,
+            //             sourceMap: shouldUseSourceMap,
+            //         },
+            //         'sass-loader',
+            //     ),
+            //     sideEffects: true,
             // },
             {
               test: lessRegex,

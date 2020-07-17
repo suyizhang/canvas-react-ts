@@ -17,6 +17,13 @@ function ensureSlash(inputPath, needsSlash) {
     return inputPath;
   }
 }
+
+function getServedPath(appPackageJson) {
+  const publicUrl = getPublicUrl(appPackageJson);
+  const servedUrl = envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
+  return ensureSlash(servedUrl, true);
+}
+
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
@@ -33,12 +40,6 @@ const publicUrlOrPath = getPublicUrlOrPath(
   require(resolveApp('package.json')).homepage,
   process.env.PUBLIC_URL,
 );
-
-function getServedPath(appPackageJson) {
-  const publicUrl = getPublicUrl(appPackageJson);
-  const servedUrl = envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
-  return ensureSlash(servedUrl, true);
-}
 
 const moduleFileExtensions = [
   'web.mjs',
@@ -80,8 +81,8 @@ module.exports = {
   appJsConfig: resolveApp('jsconfig.json'),
   yarnLockFile: resolveApp('yarn.lock'),
   proxySetup: resolveApp('src/setupProxy.js'),
-  servedPath: getServedPath(resolveApp('package.json')),
   appNodeModules: resolveApp('node_modules'),
+  servedPath: getServedPath(resolveApp('package.json')),
   publicUrlOrPath,
 };
 
